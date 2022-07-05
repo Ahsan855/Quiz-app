@@ -44,9 +44,6 @@ const Navbar = () => {
               )}
 
               <li>
-                <NavLink to="/about">About Me</NavLink>
-              </li>
-              <li>
                 <NavLink to="/contact">Contact Me</NavLink>
               </li>
               {user && (
@@ -82,38 +79,25 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <a class="text-xl text-secondary font-serif">Ahsan Habib</a>
+          <a class="btn btn-ghost normal-case text-xl font-serif">
+            Ahsan Habib
+          </a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <NavLink className="text-secondary" to="/">
-                Home
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/quiz">Quiz</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact Me</NavLink>
             </li>
             {user && (
               <li>
-                <NavLink className="text-secondary" to="/quiz">
-                  Quiz
-                </NavLink>
-              </li>
-            )}
-            <li>
-              <NavLink className="text-secondary" to="/about">
-                About Me
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="text-secondary" to="/contact">
-                Contact Me
-              </NavLink>
-            </li>
-            {user && (
-              <li>
-                <button
-                  onClick={logout}
-                  className="my-2 mr-5  text-secondary font-semibold"
-                >
+                <button onClick={logout} className="my-2 mr-5  font-semibold">
                   Logout
                 </button>
               </li>
@@ -122,20 +106,10 @@ const Navbar = () => {
             {!user && (
               <>
                 <li>
-                  <NavLink
-                    className="my-2 mr-5   text-secondary font-semibold  "
-                    to="/login"
-                  >
-                    Login
-                  </NavLink>
+                  <NavLink to="/login">Login</NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    className="my-2 mr-5   text-secondary font-semibold "
-                    to="/signup"
-                  >
-                    Signup
-                  </NavLink>
+                  <NavLink to="/signup">Signup</NavLink>
                 </li>
               </>
             )}
