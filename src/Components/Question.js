@@ -1,12 +1,5 @@
 import React from "react";
 
-const Button = ({ answer, className }) => (
-  <button
-    className={`bg-white w-1/2 p-4 text-purple-800 border-2 rounded-md m-2 shadow-md ${className}`}
-  >
-    {answer}
-  </button>
-);
 const Question = ({
   handleAnswer,
   data: { question, correct_answer, incorrect_answers },
@@ -18,37 +11,16 @@ const Question = ({
     <div>
       <div className="mt-10 w-3/4 mx-auto">
         <h1
-          className="text-4xl font-bold text-purple-500 bg-white mb-5 border-2 p-3 rounded-md"
+          className="text-2xl text-purple-500 font-semibold bg-white mb-5 border-2 p-3 rounded-md"
           dangerouslySetInnerHTML={{ __html: question }}
         />
-        <Button
-          className={
-            correct_answer === CorrectAnswer[0] ? "bg-success" : "bg-red-600"
-          }
-          onClick={() => handleAnswer(CorrectAnswer[0])}
-          answer={CorrectAnswer[0]}
-        />
-        <Button
-          className={
-            correct_answer === CorrectAnswer[1] ? "bg-success" : "bg-red-600 "
-          }
-          onClick={() => handleAnswer(CorrectAnswer[1])}
-          answer={CorrectAnswer[1]}
-        />
-        <Button
-          className={
-            correct_answer === CorrectAnswer[2] ? "bg-success" : "bg-red-600"
-          }
-          onClick={() => handleAnswer(CorrectAnswer[2])}
-          answer={CorrectAnswer[2]}
-        />
-        <Button
-          className={
-            correct_answer === CorrectAnswer[3] ? "bg-success" : "bg-red-600"
-          }
-          onClick={() => handleAnswer(CorrectAnswer[3])}
-          answer={CorrectAnswer[3]}
-        />
+        {CorrectAnswer?.map((answer) => (
+          <button
+            onClick={() => handleAnswer(answer)}
+            className="w-1/2 p-4 bg-white text-purple-800 border-2 rounded-md m-2 shadow-md"
+            dangerouslySetInnerHTML={{ __html: answer }}
+          />
+        ))}
       </div>
     </div>
   );
