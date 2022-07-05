@@ -3,11 +3,6 @@ import Question from "../Components/Question";
 const QUS_URL =
   "https://opentdb.com/api.php?amount=15&category=18&difficulty=easy";
 
-const Button = ({ answer }) => (
-  <button className="bg-white w-1/2 p-4 text-purple-800 border-2 rounded-md m-2 shadow-md">
-    {answer}
-  </button>
-);
 const QuizApp = () => {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
