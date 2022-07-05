@@ -7,6 +7,7 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
+  console.log(user);
   const logout = () => {
     signOut(auth);
   };
@@ -48,31 +49,36 @@ const Navbar = () => {
                 <NavLink to="/contact">Contact Me</NavLink>
               </li>
               {user && (
-                <li>
-                  <button
-                    onClick={logout}
-                    className="my-2 mr-5   text-secondary font-semibold"
-                  >
-                    Logout
-                  </button>
-                </li>
+                <>
+                  <li>
+                    <button
+                      onClick={logout}
+                      className="my-2 mr-5   text-secondary font-semibold"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                  <img
+                    className="w-14 h-14 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+
+                  <li className="my-2 ml-2 mr-5 mt-5 text-secondary font-semibold">
+                    {user?.displayName}
+                  </li>
+                </>
               )}
 
               {!user && (
                 <>
                   <li>
-                    <NavLink
-                      className="my-2 mr-5   text-secondary font-semibold  "
-                      to="/login"
-                    >
+                    <NavLink className="my-2 mr-5 font-semibold  " to="/login">
                       Login
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      className="my-2 mr-5   text-secondary font-semibold "
-                      to="/signup"
-                    >
+                    <NavLink className="my-2 mr-5 font-semibold " to="/signup">
                       Signup
                     </NavLink>
                   </li>
@@ -95,11 +101,21 @@ const Navbar = () => {
               <NavLink to="/contact">Contact Me</NavLink>
             </li>
             {user && (
-              <li>
-                <button onClick={logout} className="my-2 mr-5  font-semibold">
-                  Logout
-                </button>
-              </li>
+              <>
+                <li>
+                  <button onClick={logout} className="my-2 mr-5 font-semibold">
+                    Logout
+                  </button>
+                </li>
+                <img
+                  className="w-14 h-14 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <li className="my-2 ml-2 mr-5 mt-5 text-secondary font-semibold">
+                  {user?.displayName}
+                </li>
+              </>
             )}
 
             {!user && (
