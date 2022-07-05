@@ -7,7 +7,7 @@ const QuizApp = () => {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [gameEnded, setGameEnded] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
   useEffect(() => {
     fetch(QUS_URL)
       .then((res) => res.json())
@@ -17,28 +17,37 @@ const QuizApp = () => {
   }, []);
 
   const handleAnswer = (answer) => {
-    const newIndex = currentIndex + 1;
-    setCurrentIndex(currentIndex + 1);
-    // we are check for a answer
-    if (answer === questions[currentIndex].correct_answer) {
-      setScore(score + 1);
+    if (!showAnswers) {
+      // prevent double answers
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1);
+      }
     }
-    if (newIndex >= questions?.length) {
-      setGameEnded(true);
-    }
+    setShowAnswers(true);
+    // const newIndex = currentIndex + 1
+    // setCurrentIndex(newIndex)
   };
-  return gameEnded ? (
-    <h1 className="text-2xl text-purple-500 font-bold">
-      Your Score was {score}
+  const handleNextQuestions = () => {
+    setShowAnswers(false);
+    setCurrentIndex(currentIndex + 1);
+  };
+  return currentIndex >= questions?.length ? (
+    <h1 className="text-4xl mt-20 text-purple-500 font-bold">
+      YOO ! Your Score is {score}
     </h1>
   ) : questions.length > 0 ? (
     <div className="bg-blue-400 p-10">
-      <Question data={questions[currentIndex]} handleAnswer={handleAnswer} />
+      <Question
+        data={questions[currentIndex]}
+        handleAnswer={handleAnswer}
+        handleNextQuestions={handleNextQuestions}
+        showAnswers={showAnswers}
+      />
     </div>
   ) : (
-    <span className=" text-2xl p-4 mt-52 text-white bg-red-500  w-25 h-25 rounded-full border-2">
+    <h1 className=" text-2xl p-2 mt-52 text-white bg-red-500 w-28 mx-auto h-25 my-auto rounded-full border-2">
       Loading...
-    </span>
+    </h1>
   );
 };
 
