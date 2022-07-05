@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import logo from "../../image/logo.svg";
 import auth from "../../firebase.init";
 
 const Navbar = () => {
@@ -10,8 +11,8 @@ const Navbar = () => {
     signOut(auth);
   };
   return (
-    <div>
-      <div class="navbar bg-black text-white">
+    <div className="w-3/4 mx-auto">
+      <div class="navbar border-b-2">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -79,9 +80,7 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl font-serif">
-            Ahsan Habib
-          </a>
+          <img className="h-16" src={logo} alt="" />
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
