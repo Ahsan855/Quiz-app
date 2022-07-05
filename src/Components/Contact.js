@@ -54,7 +54,14 @@ const Contact = () => {
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                   ADDRESS
                 </h2>
-                <p className="mt-1">Bogura, Rajshahi , Bangladesh</p>
+                <p className="mt-1 mb-1">Bogura, Rajshahi , Bangladesh</p>
+                <h1>My Resume</h1>
+                <a
+                  className="text-primary underline text-2xl"
+                  href="https://drive.google.com/file/d/1GFCbamBcTuBQk-LZEw9K7eLvVJU5Tzcj/view?usp=sharing"
+                >
+                  Link
+                </a>
               </div>
               <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
