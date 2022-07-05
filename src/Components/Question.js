@@ -4,12 +4,8 @@ const Question = ({
   handleAnswer,
   handleNextQuestions,
   showAnswers,
-  data: { question, correct_answer, incorrect_answers },
+  data: { question, correct_answer, answers },
 }) => {
-  const CorrectAnswer = [correct_answer, ...incorrect_answers].sort(
-    () => Math.random() - 0.5
-  );
-
   return (
     <div>
       <div className="mt-10 w-3/4 mx-auto">
@@ -17,7 +13,7 @@ const Question = ({
           className="text-2xl text-purple-500 font-semibold bg-white mb-5 border-2 p-3 rounded-md"
           dangerouslySetInnerHTML={{ __html: question }}
         />
-        {CorrectAnswer?.map((answer) => {
+        {answers?.map((answer, id) => {
           const textColor = showAnswers
             ? answer === correct_answer
               ? "text-green-500 font-semiblod text-xl"
@@ -26,6 +22,7 @@ const Question = ({
 
           return (
             <button
+              key={id}
               onClick={() => handleAnswer(answer)}
               className={`w-1/2 p-4 bg-white ${textColor} rounded-md m-2 shadow-md`}
               dangerouslySetInnerHTML={{ __html: answer }}

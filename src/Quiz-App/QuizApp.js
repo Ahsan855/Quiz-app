@@ -13,6 +13,14 @@ const QuizApp = () => {
       .then((res) => res.json())
       .then((data) => {
         setQuestions(data.results);
+        const questions = data.results.map((question) => ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random()),
+        }));
+        setQuestions(questions);
       });
   }, []);
 
@@ -28,12 +36,12 @@ const QuizApp = () => {
     // setCurrentIndex(newIndex)
   };
   const handleNextQuestions = () => {
-    setShowAnswers(false);
     setCurrentIndex(currentIndex + 1);
+    setShowAnswers(false);
   };
   return currentIndex >= questions?.length ? (
     <h1 className="text-4xl mt-20 text-purple-500 font-bold">
-      YOO ! Your Score is {score}
+      YOO ! Your Score is {score} / {currentIndex}
     </h1>
   ) : questions.length > 0 ? (
     <div className="bg-blue-400 p-10">
