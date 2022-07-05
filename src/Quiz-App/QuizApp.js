@@ -10,9 +10,13 @@ const QuizApp = () => {
       .then((res) => res.json())
       .then((data) => setQuestions(data.results));
   }, []);
+
+  const handleAnswer = (answer) => {
+    // we are check for a answer
+  };
   return questions.length > 0 ? (
     <div className="bg-blue-400 p-10">
-      <Question data={questions[0]} />
+      <Question data={questions[0]} handleAnswer={handleAnswer} />
     </div>
   ) : (
     <span className=" text-2xl p-4 mt-52 text-white bg-red-500  w-25 h-25 rounded-full border-2">
