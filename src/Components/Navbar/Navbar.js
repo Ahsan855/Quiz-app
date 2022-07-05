@@ -1,7 +1,14 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
   return (
     <div>
       <div class="navbar bg-black text-white">
@@ -30,21 +37,49 @@ const Navbar = () => {
               <li>
                 <NavLink to="/">Home</NavLink>
               </li>
-              <li>
-                <NavLink to="/quiz">Quiz</NavLink>
-              </li>
+              {user && (
+                <li>
+                  <NavLink to="/quiz">Quiz</NavLink>
+                </li>
+              )}
+
               <li>
                 <NavLink to="/about">About Me</NavLink>
               </li>
               <li>
                 <NavLink to="/contact">Contact Me</NavLink>
               </li>
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li>
-                <NavLink to="/signup">Signup</NavLink>
-              </li>
+              {user && (
+                <li>
+                  <button
+                    onClick={logout}
+                    className="my-2 mr-5   text-secondary font-semibold"
+                  >
+                    Logout
+                  </button>
+                </li>
+              )}
+
+              {!user && (
+                <>
+                  <li>
+                    <NavLink
+                      className="my-2 mr-5   text-secondary font-semibold  "
+                      to="/login"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="my-2 mr-5   text-secondary font-semibold "
+                      to="/signup"
+                    >
+                      Signup
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <a class="btn btn-ghost normal-case text-xl font-serif">
@@ -56,21 +91,48 @@ const Navbar = () => {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-              <NavLink to="/quiz">Quiz</NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink to="/quiz">Quiz</NavLink>
+              </li>
+            )}
             <li>
               <NavLink to="/about">About Me</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact Me</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">Signup</NavLink>
-            </li>
+            {user && (
+              <li>
+                <button
+                  onClick={logout}
+                  className="my-2 mr-5   text-secondary font-semibold"
+                >
+                  Logout
+                </button>
+              </li>
+            )}
+
+            {!user && (
+              <>
+                <li>
+                  <NavLink
+                    className="my-2 mr-5   text-secondary font-semibold  "
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="my-2 mr-5   text-secondary font-semibold "
+                    to="/signup"
+                  >
+                    Signup
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
