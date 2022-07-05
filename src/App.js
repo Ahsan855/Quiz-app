@@ -3,8 +3,10 @@ import "./App.css";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Home from "./Components/Home";
+import Login from "./Components/Login";
 import Navbar from "./Components/Navbar/Navbar";
 import Quiz from "./Components/Quiz";
+import Signup from "./Components/Signup";
 import QuizApp from "./Quiz-App/QuizApp";
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path="quiz" element={<Quiz />} />
         <Route path="contact" element={<Contact />} />
         <Route path="quizApp" element={<QuizApp />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
       </Routes>
     </div>
   );

@@ -39,6 +39,12 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact">Contact Me</NavLink>
               </li>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Signup</NavLink>
+              </li>
             </ul>
           </div>
           <a class="btn btn-ghost normal-case text-xl font-serif">
@@ -58,6 +64,12 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/contact">Contact Me</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup">Signup</NavLink>
             </li>
           </ul>
         </div>
