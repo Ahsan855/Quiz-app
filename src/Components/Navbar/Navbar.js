@@ -82,31 +82,37 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl font-serif">
-            Ahsan Habib
-          </a>
+          <a class="text-xl text-secondary font-serif">Ahsan Habib</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink className="text-secondary" to="/">
+                Home
+              </NavLink>
             </li>
             {user && (
               <li>
-                <NavLink to="/quiz">Quiz</NavLink>
+                <NavLink className="text-secondary" to="/quiz">
+                  Quiz
+                </NavLink>
               </li>
             )}
             <li>
-              <NavLink to="/about">About Me</NavLink>
+              <NavLink className="text-secondary" to="/about">
+                About Me
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact Me</NavLink>
+              <NavLink className="text-secondary" to="/contact">
+                Contact Me
+              </NavLink>
             </li>
             {user && (
               <li>
                 <button
                   onClick={logout}
-                  className="my-2 mr-5   text-secondary font-semibold"
+                  className="my-2 mr-5  text-secondary font-semibold"
                 >
                   Logout
                 </button>
