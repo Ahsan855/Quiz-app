@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Question = ({
   handleAnswer,
   handleNextQuestions,
+  handleSkipQuestions,
   showAnswers,
   data: { question, correct_answer, answers },
 }) => {
@@ -30,16 +31,28 @@ const Question = ({
           );
         })}{" "}
         <br />
-        {showAnswers && (
-          <div className="text-right mr-56">
+        <div className="grid grid-cols-2 mx-auto w-1/2">
+          <div>
             <button
-              onClick={handleNextQuestions}
-              className={`p-4 bg-purple-700 text-white font-bold rounded-md m-2 shadow-md`}
+              onClick={handleSkipQuestions}
+              className={`p-4 bg-red-700 text-white font-bold rounded-md m-2 shadow-md`}
             >
-              Next Question
+              Skip Question
             </button>
           </div>
-        )}
+          <div>
+            {showAnswers && (
+              <div className="text-center">
+                <button
+                  onClick={handleNextQuestions}
+                  className={`p-4 bg-green-700 text-white font-bold rounded-md m-2 shadow-md`}
+                >
+                  Next Question
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

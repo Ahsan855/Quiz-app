@@ -39,6 +39,10 @@ const QuizApp = () => {
     setCurrentIndex(currentIndex + 1);
     setShowAnswers(false);
   };
+  const handleSkipQuestions = () => {
+    setCurrentIndex(currentIndex + 1);
+    setShowAnswers(false);
+  };
   return currentIndex >= questions?.length ? (
     <h1 className="text-4xl mt-20 text-purple-500 font-bold">
       YOO ! Your Score is {score} / {currentIndex}
@@ -48,6 +52,7 @@ const QuizApp = () => {
       <Question
         data={questions[currentIndex]}
         handleAnswer={handleAnswer}
+        handleSkipQuestions={handleSkipQuestions}
         handleNextQuestions={handleNextQuestions}
         showAnswers={showAnswers}
       />
