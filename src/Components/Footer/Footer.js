@@ -69,7 +69,7 @@ const Footer = () => {
                   <a class="text-gray-600 hover:text-gray-800">Third Link</a>
                 </li>
                 <li>
-                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth link</a>
                 </li>
               </nav>
             </div>
