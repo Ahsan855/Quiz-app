@@ -1,7 +1,9 @@
 import React from "react";
 
-const Button = ({ answer }) => (
-  <button className="bg-white w-1/2 p-4 text-purple-800 border-2 rounded-md m-2 shadow-md">
+const Button = ({ answer, className }) => (
+  <button
+    className={`bg-white w-1/2 p-4 text-purple-800 border-2 rounded-md m-2 shadow-md ${className}`}
+  >
     {answer}
   </button>
 );
@@ -28,7 +30,7 @@ const Question = ({
         />
         <Button
           className={
-            correct_answer === CorrectAnswer[1] ? "bg-success" : "bg-red-600"
+            correct_answer === CorrectAnswer[1] ? "bg-success" : "bg-red-600 "
           }
           onClick={() => handleAnswer(CorrectAnswer[1])}
           answer={CorrectAnswer[1]}
