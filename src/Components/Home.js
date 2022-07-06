@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from "../image/undraw_Online_test_re_kyfx.png";
+import image1 from "../image/undraw_Interior_design_re_7mvn.png";
 import Activity from "./Activity";
 import Contact from "./Contact";
 import Pricing from "./Pricing";

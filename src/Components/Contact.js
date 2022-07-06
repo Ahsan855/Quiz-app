@@ -50,7 +50,7 @@ const Contact = () => {
             ></iframe>
 
             <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-              <div className="lg:w-1/2 px-6">
+              <div className="lg:w-1/2 sm:h-1/6 px-6">
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                   ADDRESS
                 </h2>
@@ -78,9 +78,11 @@ const Contact = () => {
             </div>
           </div>
           <div className="lg:w-1/2 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-            <h2 className="text-primary text-4xl font-bold title-font mb-5">
+            <h2 className="text-[#60A5FA] text-4xl font-bold title-font mb-5">
               Contact{" "}
-              <span className="text-accent border-b-2 border-primary">Me</span>
+              <span className="text-[#570DF8] border-b-2 border-primary">
+                Me
+              </span>
             </h2>
 
             <form onSubmit={sendEmail} ref={form}>
